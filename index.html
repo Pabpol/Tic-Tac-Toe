@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <div id="modeSelect">
+        <div class="modeContent">
+            <div class="chooseMode">
+                <div class="player-vs-player">
+                    <a href="#" class="neon-button">Player vs Player</a>
+                </div>
+                <div class="player-vs-IA">
+                    <a href="#" class="neon-button">Player vs IA</a>
+                </div>
+            </div>
+            <div class="two-players">
+                <h1>2 players</h1>
+                <form class="formBx">
+                    <div class="playerCard">
+                        <div class="form-group">
+                            <label for="namePlayer1">Name player 1</label>
+                            <input type="text" name="namePlayer1" id="namePlayer1">
+                        </div>
+                        <p>Choose your weapon</p>
+                        <div class="form-group weapon">
+                            <div>
+                                <input type="checkbox" name="weaponXPlayer1" id="weaponXPlayer1" value="X">
+                                <label class="weaponXPlayer1" for="weaponXPlayer1"><img src="img/X.png" ></label>
+                            </div>
+                   
+                            <div>
+                                <input type="checkbox" name="weaponOPlayer1" id="weaponOPlayer1" value="O">
+                                <label class="weaponOPlayer1" for="weaponOPlayer1"><img src="img/O.png" ></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playerCard">
+                        <div class="form-group">
+                            <label for="namePlayer2">Name player 2</label>
+                            <input type="text" name="namePlayer2" id="namePlayer2">
+                        </div>   
+                        <p>Choose your weapon</p>
+                        <div class="form-group weapon">
+                            <div>
+                                <input type="checkbox" name="weaponXPlayer2" id="weaponXPlayer2" value="X">
+                                <label class="weaponXPlayer2" for="weaponXPlayer2"><img src="img/X.png" ></label>
+                            </div>
+                   
+                            <div>
+                                <input type="checkbox" name="weaponOPlayer2" id="weaponOPlayer2" value="O">
+                                <label class="weaponOPlayer2" for="weaponOPlayer2"><img src="img/O.png" ></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="play">
+                        <a type="submit" href="#" class="neon-button">Play</a>
+                    </div>
+                </form>
+            </div>
+            <div class="one-player">
+                <h1>1 players</h1>
+                <div class="formBx">
+                    <form>
+                        <h2>Sign In</h2>
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <input type="submit" value="Login">
+                        <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h1 class="title"><span class="playerName"></span>'s Turn</h1>
+    <h1 class="finish">Game Over</h1>
+
+    <div class="container">
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+        <div class="gridItem"></div>
+    </div>
+
+    <div id="simpleModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2></h2>
+                <span class="closeBtn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="play-again">
+                <a href="#" class="neon-button">Play again</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
