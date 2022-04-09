@@ -70,15 +70,47 @@
             </div>
             <div class="one-player">
                 <h1>1 players</h1>
-                <div class="formBx">
-                    <form>
-                        <h2>Sign In</h2>
-                        <input type="email" placeholder="Email">
-                        <input type="password" placeholder="Password">
-                        <input type="submit" value="Login">
-                        <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
-                    </form>
-                </div>
+                <form class="formBx">
+                    <div class="playerCard">
+                        <div class="form-group">
+                            <label for="namePlayer1">Name player 1</label>
+                            <input type="text" name="namePlayer1" id="namePlayer1">
+                        </div>
+                        <p>Choose your weapon</p>
+                        <div class="form-group weapon">
+                            <div>
+                                <input type="checkbox" name="weaponXPlayer1" id="weaponXPlayer1" value="X">
+                                <label class="weaponXPlayer1" for="weaponXPlayer1"><img src="img/X.png" ></label>
+                            </div>
+                   
+                            <div>
+                                <input type="checkbox" name="weaponOPlayer1" id="weaponOPlayer1" value="O">
+                                <label class="weaponOPlayer1" for="weaponOPlayer1"><img src="img/O.png" ></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playerCard" id="IA">
+                        <div class="form-group">
+                            <label for="namePlayer2">Name player 2</label>
+                            <input type="text" name="namePlayer2" id="namePlayer2">
+                        </div>   
+                        <p>Choose your weapon</p>
+                        <div class="form-group weapon">
+                            <div>
+                                <input type="checkbox" name="weaponXPlayer2" id="weaponXPlayer2" value="X">
+                                <label class="weaponXPlayer2" for="weaponXPlayer2"><img src="img/X.png" ></label>
+                            </div>
+                   
+                            <div>
+                                <input type="checkbox" name="weaponOPlayer2" id="weaponOPlayer2" value="O">
+                                <label class="weaponOPlayer2" for="weaponOPlayer2"><img src="img/O.png" ></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="play" id="play">
+                        <a type="submit" href="#" class="neon-button">Play</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

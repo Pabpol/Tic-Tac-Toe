@@ -128,14 +128,19 @@ document.querySelector('.player-vs-IA > a').addEventListener('click', () => {
 });
 
 
-document.querySelector('.play').addEventListener('click', (e) => {
+document.getElementById('play').addEventListener('click', (e) => {
     e.preventDefault();
+    console.log('aqui')
     if ((document.getElementById('weaponXPlayer1').checked && document.getElementById('weaponXPlayer2').checked) || (document.getElementById('weaponOPlayer1').checked && document.getElementById('weaponOPlayer2').checked) ) {
         alert("Can't be the same weapon")
+        console.log('aqui2')
+
     }else{
+        console.log(document.getElementById('namePlayer1').value)
+
         const namePlayer1 = document.getElementById('namePlayer1').value;
         const weaponPlayer1 = document.getElementById('weaponXPlayer1').checked ? document.getElementById('weaponXPlayer1').value : document.getElementById('weaponOPlayer1').value;
-        const namePlayer2 = document.getElementById('namePlayer2').value;
+        const namePlayer2 = document.getElementById('namePlayer2').value === '' || null ? 'IA' : document.getElementById('namePlayer2').value;
         const weaponPlayer2 = document.getElementById('weaponXPlayer2').checked ? document.getElementById('weaponXPlayer2').value : document.getElementById('weaponOPlayer2').value;
     
         const playerOne = Player(weaponPlayer1, weaponPlayer1 === 'X' ? true : false, namePlayer1);

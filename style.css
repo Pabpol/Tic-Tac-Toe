@@ -169,29 +169,39 @@ body{
   text-decoration: none;
   transition-delay: 0.05s;
 }
-.two-players{
+.two-players,
+.one-player
+{
   display: none;
   margin: 50px;
 }
-.two-players h1{
+.two-players h1,
+.one-player h1
+{
   text-align: center;
   grid-column: span 2;
  
 }
 
-.two-players .formBx{
+.two-players .formBx,
+.one-player .formBx
+{
   display: grid;
   gap: 40px;
 
 }
-.two-players .formBx .playerCard{
+.two-players .formBx .playerCard,
+.one-player .formBx .playerCard
+{
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: #793f7e4f;
   padding: 20px;
 }
-.two-players .formBx .playerCard .form-group{
+.two-players .formBx .playerCard .form-group,
+.one-player .formBx .playerCard .form-group
+{
   display: flex;
   flex-direction: column;
   width:  100%;
@@ -205,7 +215,9 @@ body{
   letter-spacing: 1px;
   font-weight: 600;
 }
-.two-players .formBx div input{
+.two-players .formBx div input,
+.one-player .formBx div input
+{
   
   padding: 10px;
   background: #f3eeeec9;
@@ -219,13 +231,17 @@ body{
   font-weight: 400;
 }
 
-.two-players .formBx .play{
+.two-players .formBx .play,
+.one-player .formBx .play
+{
   display: flex;
   align-items: center;
   justify-content: center;
   grid-column: span 2;
 }
-.two-players .formBx .play a{
+.two-players .formBx .play a,
+.one-player .formBx .play a
+{
   margin: 0;
   grid-column: span 2;
   padding: 10px 20px 10px 20px;
@@ -235,16 +251,20 @@ body{
   margin: 100px 50px;
 }
 input[type="checkbox"] {
-  display: none;
+  display: inline;
 }
-.two-players .formBx .playerCard .form-group.weapon{
+.two-players .formBx .playerCard .form-group.weapon,
+.one-player .formBx .playerCard .form-group.weapon
+{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   gap: 50px;
 }
-.two-players .formBx .playerCard .form-group.weapon{
+.two-players .formBx .playerCard .form-group.weapon,
+.one-player .formBx .playerCard .form-group.weapon
+{
   height: 120px;
 }
 
@@ -271,4 +291,7 @@ p{
 }
 .p-O{
   color:rgba(175, 101, 255, 0.864);
+}
+#IA{
+  display: none
 }
