@@ -29,7 +29,6 @@ const DisplayController = (() => {
 
             player1.turn = true;
             document.querySelector('.title > span').textContent = player1.name;
-
             return player2.weapon;
         }
     };
@@ -123,39 +122,64 @@ document.querySelector('.player-vs-player > a').addEventListener('click', () => 
 
 document.querySelector('.player-vs-IA > a').addEventListener('click', () => {
     document.querySelector('.chooseMode').style.display = 'none';
-    document.querySelector('.one-player').style.display = 'grid';
+    document.querySelector('.two-players').style.display = 'grid';
+    document.querySelector('.IA').style.display = 'none';
 
 });
 
 
 document.getElementById('play').addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('aqui')
     if ((document.getElementById('weaponXPlayer1').checked && document.getElementById('weaponXPlayer2').checked) || (document.getElementById('weaponOPlayer1').checked && document.getElementById('weaponOPlayer2').checked) ) {
         alert("Can't be the same weapon")
-        console.log('aqui2')
 
     }else{
-        console.log(document.getElementById('namePlayer1').value)
-
         const namePlayer1 = document.getElementById('namePlayer1').value;
         const weaponPlayer1 = document.getElementById('weaponXPlayer1').checked ? document.getElementById('weaponXPlayer1').value : document.getElementById('weaponOPlayer1').value;
         const namePlayer2 = document.getElementById('namePlayer2').value === '' || null ? 'IA' : document.getElementById('namePlayer2').value;
-        const weaponPlayer2 = document.getElementById('weaponXPlayer2').checked ? document.getElementById('weaponXPlayer2').value : document.getElementById('weaponOPlayer2').value;
+        let weaponPlayer2 = document.getElementById('weaponXPlayer2').checked ? document.getElementById('weaponXPlayer2').value : document.getElementById('weaponOPlayer2').value;
     
+        if (namePlayer2 === 'IA') {
+            weaponPlayer2 = document.getElementById('weaponXPlayer1').checked ? 'O' : 'X';
+        };
+
         const playerOne = Player(weaponPlayer1, weaponPlayer1 === 'X' ? true : false, namePlayer1);
         const playerTwo = Player(weaponPlayer2, weaponPlayer2 === 'X' ? true : false, namePlayer2);
         DisplayController.closeModal('#modeSelect', weaponPlayer1 === 'X' ? playerOne.name : playerTwo.name);
     
         document.querySelector('.playerName').textContent = weaponPlayer1 === 'X' ? playerOne.name : playerTwo.name;
+
+        if (playerTwo.turn) {
+            let squareRandom = Math.floor(Math.random()*9);
+            GameBoard.board[squareRandom] = DisplayController.displayTurns(playerOne, playerTwo);
+        }
     
         const clickElement = GameBoard.grid.forEach((square, index) => {
             square.addEventListener('click', () => {
                 if (square.textContent === '') {
                     GameBoard.board[index] = DisplayController.displayTurns(playerOne, playerTwo);
+                    if (playerTwo.name === 'IA') {
+                        let playIA = false
+                        do {
+                            let squareRandom = Math.floor(Math.random()*9);
+                            if (GameBoard.board[squareRandom] === '') {
+                                console.log(squareRandom)
+                                GameBoard.board[squareRandom] = DisplayController.displayTurns(playerOne, playerTwo);
+                                playIA = true;
+                            }
+                        } while (!playIA);
+                    
+                         
+                           
+                                              
+                    }
                     GameBoard.fillGameBoard();
-
                 }
+                
+                   
+                
+
+                
                 DisplayController.findWinner(playerOne, playerTwo);
                 DisplayController.isDraw(playerOne, playerTwo);
                 document.querySelector('.closeBtn').addEventListener('click', () => DisplayController.closeModal('#simpleModal',weaponPlayer1 === 'X' ? playerOne : playerTwo));
